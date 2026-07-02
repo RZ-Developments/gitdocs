@@ -9,6 +9,7 @@ RZ scripts are built to run **standalone where possible**, with optional framewo
 | Dependency | Used by | Purpose |
 | --- | --- | --- |
 | **oxmysql** | rz-carplay, rz-stripclubs | MySQL/MariaDB queries |
+| **ox_lib** | rz-stripclubs (required) | Locales, UI helpers, callbacks |
 | **rz-sound** | rz-carplay (required) | 3D vehicle audio, SyncGroups |
 | **xsound** or **rz-sound** | rz-djbooth | Booth speaker playback |
 
@@ -16,14 +17,16 @@ RZ scripts are built to run **standalone where possible**, with optional framewo
 
 ## Per-script matrix
 
-| Script | oxmysql | rz-sound | xsound | SQL |
-| --- | :---: | :---: | :---: | :---: |
-| rz-sound | — | — | replaces via `provide` | No |
-| rz-carplay | Yes | **Yes** | — | Yes |
-| rz-djbooth | — | Optional* | Yes (listed dep) | No |
-| rz-stripclubs | Yes | — | — | Yes |
+| Script | oxmysql | ox_lib | rz-sound | xsound | SQL |
+| --- | :---: | :---: | :---: | :---: | :---: |
+| rz-sound | — | — | — | replaces via `provide` | No |
+| rz-carplay | Yes | — | **Yes** | — | Yes |
+| rz-djbooth | — | — | Optional* | Yes (listed dep) | No |
+| rz-stripclubs | Yes** | **Yes** | — | — | Yes** |
 
 \* Set `Config.PreferRzSoundSyncGroup = true` in rz-djbooth when rz-sound is installed — recommended for best sync and occlusion.
+
+\** rz-stripclubs runs without SQL, but the admin panel (`/admin:stripclub`) requires `sql/install.sql`.
 
 ---
 
@@ -61,9 +64,14 @@ Custom adapters live in **`server/custom/`** (escrow-open). Copy an existing ada
 
 rz-stripclubs supports multiple integrations via `config.lua`:
 
-* `Config.Framework`, `Config.Target`, `Config.Inventory`, `Config.Notify`, `Config.Shop`, `Config.Banking`
+* `Config.Framework` — auto, esx, qbcore, qbox, mythic, standalone
+* `Config.Target` — auto, ox_target, qb-target, standalone_drawtext
+* `Config.Inventory` — auto, ox_inventory, qs-inventory, standalone
+* `Config.Shop` — standalone (NUI) or inventory (ox_inventory)
+* `Config.Notify` — auto, ox_lib
+* `Config.Banking` — auto-detect qb-banking, renewed-banking, esx_addonaccount, mythic-finance, and more
 
-Set each to `auto` or force a specific adapter. Custom integrations can be requested via support.
+See [rz-stripclubs configuration](../rz-stripclubs/configuration.md) for the full adapter list.
 
 ---
 
@@ -76,4 +84,4 @@ Files you can edit after purchase (not encrypted):
 | rz-carplay | `config.lua`, `server/custom/**/*.lua` |
 | rz-djbooth | `config.lua`, `db/booths.json`, `server/custom/**`, `client/custom/**` |
 | rz-sound | `config.lua`, export shims, emulators, occlusion, MLO doors |
-| rz-stripclubs | See Tebex package listing |
+| rz-stripclubs | `config.lua`, `db/*.json`, `locales/*.json`, `server/custom/**`, `client/custom/**`, `shared/npc_schedule.lua` |

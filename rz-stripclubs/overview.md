@@ -1,32 +1,44 @@
 # rz-stripclubs — Overview
 
-**[RZ] STRIPCLUB SCRIPT**
+**Version 2.1.0** · `[RZ] STRIPCLUB SCRIPT`
 
-A full strip club experience for FiveM — player interactions, business management, and admin tooling with framework, inventory, target, and banking integrations.
+A full strip-club economy for FiveM — in-game creator, pole dancing, cash/item throwing, NPC dancers with schedules, lap dances, shops, bouncers, and a MySQL-backed admin analytics panel. Built on **ox_lib** with adapters for ESX, QBCore, Qbox, Mythic, and standalone.
 
 ---
 
-## Integrations
+## Highlights
 
-Configured via `config.lua`:
-
-| Adapter | Options |
+| Area | What it does |
 | --- | --- |
-| Framework | `auto`, ESX, QB-Core, Qbox, standalone |
-| Target | ox_target, qb-target, standalone |
-| Inventory | ox_inventory, qb-inventory, etc. |
-| Notify | ox_lib, qb, esx, custom |
-| Shop / banking | Server-specific adapters |
-
-Set each to `auto` for automatic detection, or force a specific integration.
+| **Creator UI** | Place clubs, poles, throw targets, standalone dancers, shops, bouncers, and blips with a raycast NUI editor |
+| **Pole dancing** | Job-gated synced pole scenes with a live thrower leaderboard on the dancer HUD |
+| **Throwing** | Tip poles or standalone dancers with cash or inventory items — configurable society / dancer / thrower splits |
+| **NPC pole dancers** | Purchasable NPCs with custom model, dance, and multi-window on-duty schedules |
+| **Lap dances** | Unlock via tipping threshold; per-touch tips, camera cycling, solo or two-girl mode, bouncer eject |
+| **Shops** | Standalone NUI checkout or ox_inventory shop registration; optional employee self-serve wholesale |
+| **Admin panel** | Revenue KPIs, trends, club comparison, and live activity feed (MySQL-backed) |
+| **Economy overrides** | Per-pole and per-dancer society/dancer/thrower splits and max thrower caps |
 
 ---
 
 ## Requirements
 
-* **oxmysql** + MariaDB/MySQL
-* **SQL install** — `sql/install.sql` (admin/analytics tables)
-* Framework and addon resources matching your config
+* **ox_lib** (required dependency)
+* **oxmysql** + MariaDB/MySQL (admin analytics)
+* Supported **framework** — ESX, QBCore, Qbox, Mythic, or standalone
+* **Target** — ox_target, qb-target, or drawtext fallback
+* **Banking** script for society payouts (optional — warns in console if missing)
+
+---
+
+## Data storage
+
+Club locations are saved under **`db/`**:
+
+* `manifest.json` — list of location IDs
+* `location_<id>.json` — one file per club
+
+No restart needed after saving from the creator — data syncs live to all clients.
 
 ---
 
@@ -34,3 +46,6 @@ Set each to `auto` for automatic detection, or force a specific integration.
 
 * [Installation](installation.md)
 * [Features](features.md)
+* [Configuration](configuration.md)
+* [Commands & controls](commands.md)
+* [Creator workflow](creator.md)

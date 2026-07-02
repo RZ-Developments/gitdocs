@@ -37,7 +37,7 @@ Some scripts need database tables before first start.
 | Script | SQL file |
 | --- | --- |
 | rz-carplay | `sql/install.sql` |
-| rz-stripclubs | `sql/install.sql` |
+| rz-stripclubs | `sql/install.sql` (admin analytics — optional for gameplay) |
 | rz-djbooth | None — booths saved to `db/booths.json` |
 | rz-sound | None |
 

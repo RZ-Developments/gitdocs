@@ -37,6 +37,9 @@
 * [Overview](rz-stripclubs/overview.md)
 * [Installation](rz-stripclubs/installation.md)
 * [Features](rz-stripclubs/features.md)
+* [Configuration](rz-stripclubs/configuration.md)
+* [Commands & controls](rz-stripclubs/commands.md)
+* [Creator workflow](rz-stripclubs/creator.md)
 
 ## Support
 

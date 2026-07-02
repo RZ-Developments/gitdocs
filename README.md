@@ -13,7 +13,7 @@ Welcome to the official documentation for [RZ Development](https://rz-developmen
 | [**rz-sound**](rz-sound/overview.md) | 3D positional audio engine — xsound & interact-sound compatible, vehicle occlusion, SyncGroups |
 | [**rz-carplay**](rz-carplay/overview.md) | In-vehicle CarPlay UI — YouTube/Spotify streaming, playlists, passenger overlay |
 | [**rz-djbooth**](rz-djbooth/overview.md) | In-world DJ booths — operator panel, song requests, booth creator, synced 3D audio |
-| [**rz-stripclubs**](rz-stripclubs/overview.md) | Full strip club experience — admin tools, analytics, framework integrations |
+| [**rz-stripclubs**](rz-stripclubs/overview.md) | In-game creator, pole dancing, lap dances, NPC schedules, shops, admin analytics (v2.1) |
 
 ---
 
