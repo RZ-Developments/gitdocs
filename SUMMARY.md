@@ -40,6 +40,7 @@
 * [Configuration](rz-stripclubs/configuration.md)
 * [Commands & controls](rz-stripclubs/commands.md)
 * [Creator workflow](rz-stripclubs/creator.md)
+* [Tebex listing](rz-stripclubs/tebex.md)
 
 ## Support
 
